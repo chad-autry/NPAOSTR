@@ -8,10 +8,10 @@ const recursiveResolve = function(
   resolvedObjects
 ) {
   let {positions, nested, ...rest} = systemJson;
-  let { u, v } = positions[positions.length % turn];
+  let { u, v } = positions[positions.length % (turn + 1)];
   u = u + parentU;
   v = v + parentV;
-  let { u1, v1 } = positions[positions.length % (turn + 1)];
+  let { u1, v1 } = positions[positions.length % (turn + 2)];
   let uVel = u1 - u + parentUVel;
   let vVel = v1 - v + parentVVel;
   resolvedObjects.push({ u: u, v: v, uVel: uVel, vVel: vVel, ...rest });
